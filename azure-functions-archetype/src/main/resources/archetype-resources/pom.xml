@@ -29,6 +29,9 @@
 #if(${trigger.toLowerCase().startsWith("sql")})
         <azure.functions.java.library.sql.version>2.1.0</azure.functions.java.library.sql.version>
 #end
+#if(${trigger.toLowerCase()=="assistantskilltrigger"})
+        <azure.functions.java.library.openai.version>0.3.0-preview</azure.functions.java.library.openai.version>
+#end
 #if(${trigger.toLowerCase()}=="durablefunctions")
         <durabletask.azure.functions.version>1.0.0</durabletask.azure.functions.version>
 #end
@@ -61,6 +64,13 @@
           <groupId>com.microsoft.azure.functions</groupId>
           <artifactId>azure-functions-java-library-sql</artifactId>
           <version>${azure.functions.java.library.sql.version}</version>
+        </dependency>
+#end
+#if(${trigger.toLowerCase()}=="assistantskilltrigger")
+        <dependency>
+          <groupId>com.microsoft.azure.functions</groupId>
+          <artifactId>azure-functions-java-library-openai</artifactId>
+          <version>${azure.functions.java.library.openai.version}</version>
         </dependency>
 #end
 #if(${trigger.toLowerCase()}=="durablefunctions")

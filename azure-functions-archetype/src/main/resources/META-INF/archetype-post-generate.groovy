@@ -37,7 +37,9 @@ def templateMap = [
         "DaprPublishOutputBinding"      : "-Dfunctions.template=DaprPublishOutputBinding",
         "DaprServiceInvocationTrigger"  : "-Dfunctions.template=DaprServiceInvocationTrigger",
         "DaprTopicTrigger"              : "-Dfunctions.template=DaprTopicTrigger",
-        "SqlTrigger"                    : "-Dfunctions.template=SqlTrigger -Dtable=[dbo].[table1] -DSqlConnectionString=\"<connection>\""
+        "SqlTrigger"                    : "-Dfunctions.template=SqlTrigger -Dtable=[dbo].[table1] -DSqlConnectionString=\"<connection>\"",
+        "AssistantSkillTrigger"         : "-Dfunctions.template=AssistantSkillTrigger -DfunctionName=\"<functionName>\" -DfunctionDescription=\"<functionDescription>\" -DparameterDescriptionJson=\"<parameterDescriptionJson>\" -Dmodel=\"<model>\"",
+        ""
 ];
 def triggerParameter = templateMap.keySet().stream()
         .filter({ key -> key.equalsIgnoreCase(trigger) || (key.lastIndexOf("Trigger") > 0 && key.substring(0, key.lastIndexOf("Trigger")).equalsIgnoreCase(trigger)) }).findFirst()
