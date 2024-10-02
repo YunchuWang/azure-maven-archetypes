@@ -42,10 +42,10 @@ def templateMap = [
         "AssistantCreate"               : "-Dfunctions.template=AssistantCreate",
         "AssistantPost"                 : "-Dfunctions.template=AssistantPost -Did=\"<assistantId>\" -Dmodel=\"<model>\" -DuserMessage=\"<userMessage>\"",
         "AssistantQuery"                : "-Dfunctions.template=AssistantQuery -Did=\"<assistantId>\" -DtimestampUtc=\"<timestampUtc>\"",
-        "EmbeddingsInput"               : "-Dfunctions.template=EmbeddingsInput -Dmodel=\"<model>\" -DmaxChunkLength=<maxChunkLength> -DmaxOverlap=<maxOverlap> -Dinput=\"<input>\" -DinputType=<inputType>",
-        "EmbeddingsStoreOutput"         : "-Dfunctions.template=EmbeddingsStoreOutput -Dmodel=\"<model>\" -DmaxChunkLength=<maxChunkLength> -DmaxOverlap=<maxOverlap> -Dinput=\"<input>\" -DinputType=<inputType> -DconnectionName=\"<connectionName>\" -Dcollection=\"<collection>\"",
-        "SemanticSearch"                : "-Dfunctions.template=SemanticSearch -DconnectionName=\"<connectionName>\" -Dcollection=\"<collection>\" -Dquery=\"<query>\" -DembeddingsModel=\"<embeddingsModel>\" -DchatModel=\"<chatModel>\" -DsystemPrompt=\"<systemPrompt>\" -DmaxKnowledgeLength=<maxKnowledgeLength>",
-        "TextCompletion"                : "-Dfunctions.template=TextCompletion -Dprompt=\"<prompt>\" -Dmodel=\"<model>\" -Dtemperature=<temperature> -DtopP=<topP> -DmaxTokens=<maxTokens>"
+        "EmbeddingsInput"               : "-Dfunctions.template=EmbeddingsInput -Dmodel=\"<model>\" -DmaxChunkLength=\"<maxChunkLength>\" -DmaxOverlap=\"<maxOverlap>\" -Dinput=\"<input>\" -DinputType=\"<inputType>\"",
+        "EmbeddingsStoreOutput"         : "-Dfunctions.template=EmbeddingsStoreOutput -Dmodel=\"<model>\" -DmaxChunkLength=\"<maxChunkLength>\" -DmaxOverlap=\"<maxOverlap>\" -Dinput=\"<input>\" -DinputType=\"<inputType>\" -DconnectionName=\"<connectionName>\" -Dcollection=\"<collection>\"",
+        "SemanticSearch"                : "-Dfunctions.template=SemanticSearch -DconnectionName=\"<connectionName>\" -Dcollection=\"<collection>\" -Dquery=\"<query>\" -DembeddingsModel=\"<embeddingsModel>\" -DchatModel=\"<chatModel>\" -DsystemPrompt=\"<systemPrompt>\" -DmaxKnowledgeLength=\"<maxKnowledgeLength>\"",
+        "TextCompletion"                : "-Dfunctions.template=TextCompletion -Dprompt=\"<prompt>\" -Dmodel=\"<model>\" -Dtemperature=\"<temperature>\" -DtopP=\"<topP>\" -DmaxTokens=\"<maxTokens>\""
 ]
 def triggerParameter = templateMap.keySet().stream()
         .filter({ key -> key.equalsIgnoreCase(trigger) || (key.lastIndexOf("Trigger") > 0 && key.substring(0, key.lastIndexOf("Trigger")).equalsIgnoreCase(trigger)) }).findFirst()
